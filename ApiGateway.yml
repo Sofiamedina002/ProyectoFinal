@@ -1,0 +1,28 @@
+server:
+  port: 8080
+cloud:
+  gateway:
+    discovery:
+      locator:
+        enabled: true
+        lower-case-service-id: true
+    routes:
+      - id: movie-service-route
+        uri: lb://movie-service
+        predicates:
+          - Path=/movie-service/**
+      - id: serie-service-route
+          uri: lb://serie-service
+          predicates:
+            - Path=/serie-service/**
+      - id: catalog-service-route
+        uri: lb://catalog-service
+        predicates:
+          - Path=/catalog-service/**
+
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
