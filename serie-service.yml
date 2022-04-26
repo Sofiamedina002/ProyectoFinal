@@ -16,9 +16,9 @@ spring:
     username: guest
     password: guest
     
-  queue:
-    serie:
-      name: serieQueue
+queue:
+  serie:
+    name: serieQueue
     
 
 eureka:
