@@ -16,11 +16,11 @@ spring:
     username: guest
     password: guest
     
-  queue:
-    movie:
-      name: movieQueue
-    serie:
-      name: serieQueue
+queue:
+  movie:
+    name: movieQueue
+  serie:
+    name: serieQueue
 
 eureka:
   client:
