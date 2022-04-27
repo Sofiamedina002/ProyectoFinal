@@ -57,10 +57,25 @@ resilience4j:
         waitDurationInOpenState: 150000
         permittedNumberOfCallsInHalfOpenState: 3
         automaticTransitionFromOpenToHalfOpenEnabled: true
+      listSerie:
+        allowHealthIndicatorToFail: false
+        registerHealthIndicator: true
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 150000
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+      
 
   retry:
     instances:
       listMovie:
+        maxAttempts: 5
+        waitDuration: 1000
+        retryExceptions:
+          - feign.FeignException$InternalServerError
+      listSerie:
         maxAttempts: 5
         waitDuration: 1000
         retryExceptions:
