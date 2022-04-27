@@ -61,4 +61,5 @@ resilience4j:
       listMovie:
         maxAttempts: 5
         waitDuration: 1000
-        retryExceptions[0]: feign.FeignException$InternalServerError
+        retryExceptions[0]: 
+         - feign.FeignException$InternalServerError
